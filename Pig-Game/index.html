@@ -30,6 +30,22 @@
       <button class="btn btn--new">🔄 Novo Jogo</button>
       <button class="btn btn--roll">🎲 Jogue o dado</button>
       <button class="btn btn--hold">📥 Passar</button>
+      <div class="modal hidden">
+        <h1>The Pig game 🎲</h1>
+        <p>
+          Para vencer esse jogo basta marcar 20 pontos, acumulando de forma a
+          não retirar o número <b>1</b>, caso ocorra irá passar a vez e perder
+          todos os pontos acumulados, caso escolha passar a vez irá reter todos
+          os pontos obtidos até o momento, abaixo preencha o nome dos dois
+          jogadores ou deixe em branco para usar o player por padrão.
+          <div>
+            <input type="text" class='p1'>
+            <input type="text" class='p2'>
+          <button class="send-modal">Começar</button>
+          </div>
+        </p>
+      </div>
+      <div class="overlay hidden"></div>
     </main>
     <script src="script.js"></script>
   </body>
