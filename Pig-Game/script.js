@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const score0Player = document.querySelector('#score--0');
@@ -8,11 +8,30 @@ const current1Score = document.querySelector('#current--1');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const btnNewGame = document.querySelector('.btn--new');
+const btnSend = document.querySelector('.send-modal');
 const imagem = document.querySelector('.dice');
 let scores = [0, 0]; // valores para pontuação
 let valor = 0; // armazenador dos valores do dado
 let activePlayer = 0; //status do player alterna entre 0 e 1
-startGame(); // chama função para iniciar jogo
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+openModal();
+
+const send = function () {
+  let p1 = document.querySelector('.p1').value;
+  let p2 = document.querySelector('.p2').value;
+  p1 !== '' ? (document.getElementById('name--0').textContent = p1) : 'p1';
+  p2 !== '' ? (document.getElementById('name--1').textContent = p2) : 'p2';
+  startGame(); // chama função para iniciar jogo
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+btnSend.addEventListener('click', send);
 
 btnNewGame.addEventListener('click', startGame);
 
@@ -69,10 +88,6 @@ function startGame() {
   imagem.classList.add('hidden');
   btnHold.classList.remove('hidden');
   btnRoll.classList.remove('hidden');
-  let p1 = window.prompt('Digite o nome do primeiro Jogador');
-  let p2 = window.prompt('Digite o nome do segundo Jogador');
-  p1 !== '' ? (document.getElementById('name--0').textContent = p1) : null;
-  p2 !== '' ? (document.getElementById('name--1').textContent = p2) : null;
 }
 
 function changePlayer() {
